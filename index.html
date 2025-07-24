@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modern MP3 Music Player</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  
+
+    <div class="players-row-modern">
+
+    <div class="player-modern">
+      <div class="current-song">
+        <img id="cover" src="songs/song-cover-photo-01.png" alt="Album Cover" class="cover">
+        <div class="song-info">
+          <h2 id="title">Song Title</h2>
+          <p id="artist">Artist</p>
+          <div class="progress-container" id="progress-container">
+            <span id="current-time">0:00</span>
+            <div class="progress-bar-bg">
+              <div class="progress-bar" id="progress-bar"></div>
+              <div class="progress-pointer" id="progress-pointer"></div>
+            </div>
+            <span id="duration">0:00</span>
+          </div>
+          <div class="controls">
+            <div class="controls-group main-controls">
+              <button id="prev" title="Previous"><i class="fa-solid fa-backward"></i></button>
+              <button id="play" title="Play/Pause"><i class="fa-solid fa-play"></i></button>
+              <button id="next" title="Next"><i class="fa-solid fa-forward"></i></button>
+            </div>
+            <div class="controls-group secondary-controls">
+              <button id="shuffle" title="Shuffle"><i class="fa-solid fa-shuffle"></i></button>
+              <button id="repeat" title="Repeat"><i class="fa-solid fa-repeat"></i></button>
+              <div class="volume-control-wrapper">
+                <button id="mute"><i class="fa-solid fa-volume-up"></i></button>
+                <div class="volume-bar-container">
+                  <input type="range" id="volume-bar" min="0" max="1" step="0.01" value="0.5" orient="vertical">
+                </div>
+              </div>
+              <button id="playlist-toggle"><i class="fa-solid fa-list"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="playlist show" id="playlist">
+        <div class="playlist-item"
+             data-title="Dreamscape"
+             data-artist="space-music"
+             data-src="songs/dreamscape.mp3"
+             data-cover="songs/song-cover-photo-01.png">
+          Dreamscape - Unknown
+        </div>
+        <div class="playlist-item"
+             data-title="Gravity"
+             data-artist="boom-music"
+             data-src="songs/gravity.mp3"
+             data-cover="songs/song-cover-photo-02.png">
+          Gravity - Unknown
+        </div>
+        <div class="playlist-item"
+             data-title="Lemonade"
+             data-artist="mind-out"
+             data-src="songs/lemonade.mp3"
+             data-cover="songs/song-cover-photo-03.png">
+          Lemonade - Unknown
+        </div>
+        <div class="playlist-item"
+             data-title="midnight-city"
+             data-artist="mindnigt"
+             data-src="songs/midnight-city.mp3"
+             data-cover="songs/song-cover-photo-04.png">
+          Lemonade - Unknown
+        </div>
+        <div class="playlist-item"
+             data-title="Ocean-eyes"
+             data-artist="Ocean-studio"
+             data-src="songs/ocean-eyes.mp3"
+             data-cover="songs/song-cover-photo-05.png">
+          Lemonade - Unknown
+        </div>
+        <div class="playlist-item"
+             data-title="Things-end"
+             data-artist="moon-light"
+             data-src="songs/things-end.mp3"
+             data-cover="songs/song-cover-photo-06.png">
+          Lemonade - Unknown
+        </div>
+      </div>
+      <audio id="audio"></audio>
+    </div>
+
+
+    <div class="player-dark">
+      <div class="player-dark-main">
+        <div class="player-dark-main-inner">
+          <div class="player-dark-main-inner-inner">
+            <button id="playlist-toggle-dark" class="playlist-toggle-dark">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+            <div class="current-song-dark">
+              <div class="cover-dark-wrapper">
+                <img id="cover-dark" src="songs/song-cover-photo-04.png" alt="Album Cover" class="cover-dark">
+
+              </div>
+              <div class="song-info-dark">
+                <h2 id="title-dark">Song Title</h2>
+                <p id="artist-dark">Artist</p>
+              </div>
+            </div>
+            <div class="progress-container-dark" id="progress-container-dark">
+              <span id="current-time-dark">0:00</span>
+              <div class="progress-bar-bg-dark">
+                <div class="progress-bar-dark" id="progress-bar-dark"></div>
+                <div class="progress-pointer-dark" id="progress-pointer-dark"></div>
+              </div>
+              <span id="duration-dark">0:00</span>
+            </div>
+            <div class="controls-dark">
+              <div class="controls-group-dark main-controls-dark">
+                <button id="prev-dark" title="Previous"><i class="fa-solid fa-backward"></i></button>
+                <button class="glass-border" id="play-dark" title="Play/Pause"><i class="fa-solid fa-play"></i></button>
+                <button id="next-dark" title="Next"><i class="fa-solid fa-forward"></i></button>
+              </div>
+              <div class="controls-group-dark secondary-controls-dark">
+                <button id="shuffle-dark" title="Shuffle"><i class="fa-solid fa-shuffle"></i></button>
+                <button id="repeat-dark" title="Repeat"><i class="fa-solid fa-repeat"></i></button>
+                <div class="volume-control-wrapper-dark">
+                  <button id="mute-dark"><i class="fa-solid fa-volume-up"></i></button>
+                  <div class="volume-bar-container-dark">
+                    <input type="range" id="volume-bar-dark" min="0" max="1" step="0.01" value="0.5" orient="vertical">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <audio id="audio-dark"></audio>
+          </div>
+        </div>
+        <div class="playlist-dark" id="playlist-dark">
+          <div class="playlist-item"
+               data-title="2nd-Playlist-Item01"
+               data-artist="Unknown"
+               data-src="songs/2nd-Playlist-Item01.mp3"
+               data-cover="songs/song-cover-photo-04.png">
+            2nd-Playlist-Item01 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="2nd-Playlist-Item02"
+               data-artist="Unknown"
+               data-src="songs/2nd-Playlist-Item02.mp3"
+               data-cover="songs/player-02-song-cover-photo-02.png">
+            2nd-Playlist-Item02 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="2nd-Playlist-Item03"
+               data-artist="Unknown"
+               data-src="songs/2nd-Playlist-Item03.mp3"
+               data-cover="songs/player-02-song-cover-photo-03.png">
+            2nd-Playlist-Item03 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="2nd-Playlist-Item04"
+               data-artist="Unknown"
+               data-src="songs/2nd-Playlist-Item04.mp3"
+               data-cover="songs/player-02-song-cover-photo-04.png">
+            2nd-Playlist-Item04 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="2nd-Playlist-Item05"
+               data-artist="Unknown"
+               data-src="songs/2nd-Playlist-Item05.mp3"
+               data-cover="songs/player-02-song-cover-photo-05.png">
+            2nd-Playlist-Item05 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="2nd-Playlist-Item06"
+               data-artist="Unknown"
+               data-src="songs/lost-stars.mp3"
+               data-cover="songs/player-02-song-cover-photo-06.png">
+            2nd-Playlist-Item06 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="2nd-Playlist-Item06"
+               data-artist="Unknown"
+               data-src="songs/gravity.mp3"
+               data-cover="songs/player-02-song-cover-photo-07.png">
+            2nd-Playlist-Item06 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="2nd-Playlist-Item06"
+               data-artist="Unknown"
+               data-src="songs/dreamscape.mp3"
+               data-cover="songs/player-02-song-cover-photo-08.png">
+            2nd-Playlist-Item06 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="2nd-Playlist-Item06"
+               data-artist="Unknown"
+               data-src="songs/sunset-drive.mp3"
+               data-cover="songs/player-02-song-cover-photo-09.png">
+            2nd-Playlist-Item06 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="2nd-Playlist-Item06"
+               data-artist="Unknown"
+               data-src="songs/ocean-eyes.mp3"
+               data-cover="songs/player-02-song-cover-photo-10.png">
+            2nd-Playlist-Item06 - Unknown
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+      <div class="player-minimal">
+        <div class="current-song-minimal">
+          <img id="cover-minimal" src="songs/song-cover-photo-10.png" alt="Album Cover" class="cover-minimal">
+          <div class="song-info-minimal">
+            <h2 id="title-minimal">Song Title</h2>
+            <p id="artist-minimal">The name of the singer</p>
+            <div class="progress-container-minimal" id="progress-container-minimal">
+              <span id="current-time-minimal">3:21</span>
+              <div class="progress-bar-bg-minimal">
+                <div class="progress-bar-minimal" id="progress-bar-minimal"></div>
+                <div class="progress-pointer-minimal" id="progress-pointer-minimal"></div>
+              </div>
+              <span id="duration-minimal">5:17</span>
+            </div>
+            <div class="controls-minimal">
+              <div class="controls-group-minimal main-controls-minimal">
+                <button id="prev-minimal" title="Previous"><i class="fa-solid fa-backward-step"></i></button>
+                <button id="play-minimal" title="Play/Pause"><i class="fa-solid fa-play"></i></button>
+                <button id="next-minimal" title="Next"><i class="fa-solid fa-forward-step"></i></button>
+              </div>
+              <div class="controls-group-minimal secondary-controls-minimal">
+                <div class="volume-control-wrapper-minimal">
+                  <button id="mute-minimal"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="playlist-minimal show" id="playlist-minimal">
+          <div class="playlist-item"
+               data-title="3rd-playlist-item01"
+               data-artist="Unknown"
+               data-src="songs/3rd-playlist-item01.mp3"
+               data-cover="songs/song-cover-photo-04.png">
+            3rd-playlist-item01 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="3rd-playlist-item02"
+               data-artist="Unknown"
+               data-src="songs/3rd-playlist-item02.mp3"
+               data-cover="songs/song-cover-photo-05.png">
+            3rd-playlist-item02 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="3rd-playlist-item03"
+               data-artist="Unknown"
+               data-src="songs/3rd-playlist-item03.mp3"
+               data-cover="songs/song-cover-photo-06.png">
+            3rd-playlist-item03 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="3rd-playlist-item04"
+               data-artist="Unknown"
+               data-src="songs/3rd-playlist-item04.mp3"
+               data-cover="songs/song-cover-photo-07.png">
+            3rd-playlist-item04 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="3rd-playlist-item05"
+               data-artist="Unknown"
+               data-src="songs/3rd-playlist-item05.mp3"
+               data-cover="songs/song-cover-photo-08.png">
+            3rd-playlist-item05 - Unknown
+          </div>
+          <div class="playlist-item"
+               data-title="3rd-playlist-item06"
+               data-artist="Unknown"
+               data-src="songs/3rd-playlist-item06.mp3"
+               data-cover="songs/song-cover-photo-09.png">
+            3rd-playlist-item06 - Unknown
+          </div>
+        </div>
+        <audio id="audio-minimal"></audio>
+      </div>
+    </div>
+
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- https://elfsight.com/audio-player-widget/blogger/ -->
