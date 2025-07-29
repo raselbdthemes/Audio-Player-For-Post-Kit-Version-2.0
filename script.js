@@ -222,14 +222,14 @@ class AudioPlayer {
     });
     this.audio.play();
     this.isPlaying = true;
-    this.playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+    updateAllPlayButtons(this.audio);
     this.highlightPlaylistItem(this.currentSong);
   }
   
   pauseSong() {
     this.audio.pause();
     this.isPlaying = false;
-    this.playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+    updateAllPlayButtons();
     this.highlightPlaylistItem(this.currentSong);
   }
   
@@ -431,7 +431,7 @@ class AudioPlayer {
     
     if (this.progressContainer && this.progressBar) {
       this.progressContainer.addEventListener('click', (e) => {
-        const barBg = this.progressContainer.querySelector('.progress-bar-bg, .progress-bar-bg-dark');
+        const barBg = this.progressContainer.querySelector('.progress-bar-bg, .progress-bar-bg-dark, .progress-bar-bg-minimal');
         if (!barBg) return;
         const rect = barBg.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -607,4 +607,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// Helper function to update all play buttons reliably
+function updateAllPlayButtons(currentAudio) {
+  document.querySelectorAll('.player-modern, .player-dark, .player-minimal').forEach(player => {
+    const audio = player.querySelector('audio');
+    const playBtn = player.querySelector('#play, #play-dark, #play-minimal');
+    if (playBtn) {
+      if (audio === currentAudio && !audio.paused) {
+        playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+      } else {
+        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+      }
+    }
+  });
+}
 

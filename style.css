@@ -260,21 +260,30 @@ body {
 }
 
 /* Playlist */
-.playlist {
-  max-height: 260px;
-  overflow-y: auto;
-  margin-top: 8px;
+.player-modern .playlist {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s, margin-top 0.4s, padding 0.4s;
+  flex-direction: column;
+  gap: 10px;
   border-radius: 10px;
   background-color: rgba(255, 239, 175, 0.05);
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  display: none;
-  flex-direction: column;
-  gap: 10px;
   padding-right: 5px;
 }
 
-.playlist.show {
-  display: flex;
+/* Show state */
+.player-modern .playlist.show {
+  max-height: 260px; 
+  opacity: 1;
+  margin-top: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s, margin-top 0.4s, padding 0.4s;
 }
 
 .playlist-item {
